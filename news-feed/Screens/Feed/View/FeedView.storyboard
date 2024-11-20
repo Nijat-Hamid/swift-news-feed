@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feed-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="FeedController" customModule="news_feed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="Background">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grid" translatesAutoresizingMaskIntoConstraints="NO" id="HKz-gA-AUr" userLabel="Grid">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrv-Oi-PUb">
+                                <rect key="frame" x="14" y="67" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="GLL-Dc-Sjz"/>
+                                    <constraint firstAttribute="height" constant="32" id="i0G-q4-Zrn"/>
+                                    <constraint firstAttribute="width" secondItem="Xrv-Oi-PUb" secondAttribute="height" multiplier="1:1" id="lwa-dg-b54"/>
+                                </constraints>
+                                <color key="tintColor" name="brand light"/>
+                                <state key="normal" image="Image">
+                                    <color key="titleColor" name="brand light"/>
+                                </state>
+                                <state key="selected" image="Image"/>
+                                <connections>
+                                    <action selector="menuButton:" destination="B9Y-s3-LNE" eventType="touchUpInside" id="7WL-fz-Dz1"/>
+                                    <action selector="menuButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zyN-O1-L5U"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="HKz-gA-AUr" secondAttribute="bottom" id="18N-o5-D6E"/>
+                            <constraint firstItem="Xrv-Oi-PUb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="7lP-a4-xlq"/>
+                            <constraint firstItem="HKz-gA-AUr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KgK-Qa-goV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HKz-gA-AUr" secondAttribute="trailing" id="Lrd-5L-0Th"/>
+                            <constraint firstItem="Xrv-Oi-PUb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="14" id="Zg0-7h-gCl"/>
+                            <constraint firstItem="HKz-gA-AUr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yZ5-F1-tj6"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Feed" id="3Rb-rm-beB" userLabel="Bar Item">
+                        <imageReference key="image" image="newspaper" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="B9Y-s3-LNE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="-28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="512" height="512"/>
+        <image name="grid" width="675" height="1200"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
+        <namedColor name="background">
+            <color red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="brand light">
+            <color red="0.24313725490196078" green="0.81176470588235294" blue="0.55686274509803924" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
