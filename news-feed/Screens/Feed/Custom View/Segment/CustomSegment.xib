@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSegment" customModule="news_feed" customModuleProvider="target">
+            <connections>
+                <outlet property="background" destination="YAb-Iu-i33" id="Osx-MJ-e5W"/>
+                <outlet property="backgroundCenterX" destination="BID-E5-Fel" id="eBA-PU-kch"/>
+                <outlet property="backgroundWidth" destination="lI9-hE-OQL" id="STA-wT-Cjn"/>
+                <outletCollection property="tabLabels" destination="4KI-9V-8gG" collectionClass="NSMutableArray" id="Z6v-KV-FSg"/>
+                <outletCollection property="tabLabels" destination="CxA-i0-7J0" collectionClass="NSMutableArray" id="tUr-Wz-N3e"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="216" height="69"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-Iu-i33" userLabel="Background">
+                    <rect key="frame" x="12.000000000000004" y="49.666666666666664" width="55.333333333333343" height="1.6666666666666643"/>
+                    <color key="backgroundColor" name="brand light"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZjU-Hv-w8W">
+                    <rect key="frame" x="12" y="0.0" width="192" height="69"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KI-9V-8gG">
+                            <rect key="frame" x="0.0" y="23.666666666666664" width="55.333333333333336" height="21.666666666666664"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <color key="textColor" name="text"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desktop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxA-i0-7J0" userLabel="Desktop">
+                            <rect key="frame" x="123" y="23.666666666666664" width="69" height="21.666666666666664"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <color key="textColor" name="text"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="YAb-Iu-i33" firstAttribute="height" secondItem="4KI-9V-8gG" secondAttribute="height" constant="-20" id="9MP-nI-bGB"/>
+                <constraint firstItem="YAb-Iu-i33" firstAttribute="centerX" secondItem="4KI-9V-8gG" secondAttribute="centerX" id="BID-E5-Fel"/>
+                <constraint firstItem="YAb-Iu-i33" firstAttribute="centerY" secondItem="4KI-9V-8gG" secondAttribute="centerY" constant="16" id="LyB-KM-pBJ"/>
+                <constraint firstItem="ZjU-Hv-w8W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Oyd-2e-hhB"/>
+                <constraint firstAttribute="trailing" secondItem="ZjU-Hv-w8W" secondAttribute="trailing" constant="12" id="WNb-T6-gOr"/>
+                <constraint firstAttribute="bottom" secondItem="ZjU-Hv-w8W" secondAttribute="bottom" id="hfg-DV-0b9"/>
+                <constraint firstItem="YAb-Iu-i33" firstAttribute="width" secondItem="4KI-9V-8gG" secondAttribute="width" id="lI9-hE-OQL"/>
+                <constraint firstItem="ZjU-Hv-w8W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pvw-RL-QRa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-96.818181818181827" y="-288.38912133891216"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="brand light">
+            <color red="0.24300000071525574" green="0.81199997663497925" blue="0.55699998140335083" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

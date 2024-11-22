@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +15,14 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="FeedController" customModule="news_feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="Background">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grid" translatesAutoresizingMaskIntoConstraints="NO" id="HKz-gA-AUr" userLabel="Grid">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="62" width="440" height="811"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrv-Oi-PUb">
-                                <rect key="frame" x="14" y="67" width="32" height="32"/>
+                                <rect key="frame" x="14" y="70" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="GLL-Dc-Sjz"/>
                                     <constraint firstAttribute="height" constant="32" id="i0G-q4-Zrn"/>
@@ -37,15 +38,109 @@
                                     <action selector="menuButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zyN-O1-L5U"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdu-3L-CGS" userLabel="Custom Segment" customClass="CustomSegment" customModule="news_feed" customModuleProvider="target">
+                                <rect key="frame" x="107" y="72" width="229" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" placeholder="YES" id="Sp0-dM-GA3"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1P0-xz-7Pk" userLabel="Feed Container">
+                                <rect key="frame" x="8" y="116" width="424" height="749"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bZy-Jf-Wuy">
+                                    <size key="itemSize" width="424" height="336"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedCell" id="HWE-ub-GV0" customClass="FeedCell" customModule="news_feed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="424" height="336"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oPD-AF-qRc">
+                                            <rect key="frame" x="0.0" y="0.0" width="424" height="336"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo feed image" translatesAutoresizingMaskIntoConstraints="NO" id="SoZ-yg-h6k">
+                                                    <rect key="frame" x="8" y="12" width="408" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="8fd-eS-xvs"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube Music testing a new UI for the Now Playing screen on its mobile app" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhF-ES-Z39" userLabel="Title">
+                                                    <rect key="frame" x="8" y="208" width="408" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" name="text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omx-rL-b4i">
+                                                    <rect key="frame" x="8" y="261" width="408" height="57.333333333333314"/>
+                                                    <string key="text">Last month, over a year after its announcement, YouTube Music finally replaced the "Listen again" section with a new "Speed dial" section, giving users easier access to their favorite tracks. Now, it appears that another UI redesign is on the horizon, as YouTube Music has been spotted testing a new UI for the Now Playing screen.</string>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                                    <color key="textColor" name="card text"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="card background"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Omx-rL-b4i" secondAttribute="bottom" constant="24" id="43R-El-pOC"/>
+                                                <constraint firstItem="Omx-rL-b4i" firstAttribute="top" secondItem="EhF-ES-Z39" secondAttribute="bottom" constant="10" id="9pm-a8-zFK"/>
+                                                <constraint firstItem="SoZ-yg-h6k" firstAttribute="top" secondItem="oPD-AF-qRc" secondAttribute="top" constant="12" id="B6O-6P-6O4"/>
+                                                <constraint firstItem="Omx-rL-b4i" firstAttribute="leading" secondItem="oPD-AF-qRc" secondAttribute="leading" constant="8" id="aiE-uV-6Iq"/>
+                                                <constraint firstItem="EhF-ES-Z39" firstAttribute="leading" secondItem="oPD-AF-qRc" secondAttribute="leading" constant="8" id="bhC-uG-XVR"/>
+                                                <constraint firstAttribute="trailing" secondItem="Omx-rL-b4i" secondAttribute="trailing" constant="8" id="dZb-yZ-Td6"/>
+                                                <constraint firstItem="EhF-ES-Z39" firstAttribute="top" secondItem="SoZ-yg-h6k" secondAttribute="bottom" constant="16" id="gRG-jy-OuJ"/>
+                                                <constraint firstItem="SoZ-yg-h6k" firstAttribute="leading" secondItem="oPD-AF-qRc" secondAttribute="leading" constant="8" id="giv-OX-5sJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="EhF-ES-Z39" secondAttribute="trailing" constant="8" id="iUj-WY-rxN"/>
+                                                <constraint firstAttribute="trailing" secondItem="SoZ-yg-h6k" secondAttribute="trailing" constant="8" id="reD-bP-nTw"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" name="border color"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="424" height="336"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="Omx-rL-b4i" id="t9N-Lx-dwv"/>
+                                            <outlet property="feedImage" destination="SoZ-yg-h6k" id="q9W-Vt-JxA"/>
+                                            <outlet property="titleLabel" destination="EhF-ES-Z39" id="1e3-VZ-i6g"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="HKz-gA-AUr" secondAttribute="bottom" id="18N-o5-D6E"/>
+                            <constraint firstItem="1P0-xz-7Pk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="6FX-jQ-Xh8"/>
                             <constraint firstItem="Xrv-Oi-PUb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="7lP-a4-xlq"/>
+                            <constraint firstItem="Kdu-3L-CGS" firstAttribute="leading" secondItem="Xrv-Oi-PUb" secondAttribute="trailing" constant="61" id="8Au-ou-Ozn"/>
+                            <constraint firstItem="Kdu-3L-CGS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="GSD-fE-yAz"/>
                             <constraint firstItem="HKz-gA-AUr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KgK-Qa-goV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HKz-gA-AUr" secondAttribute="trailing" id="Lrd-5L-0Th"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Kdu-3L-CGS" secondAttribute="trailing" constant="104" id="QHa-90-aDf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1P0-xz-7Pk" secondAttribute="bottom" constant="8" id="W0X-pT-Irt"/>
                             <constraint firstItem="Xrv-Oi-PUb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="14" id="Zg0-7h-gCl"/>
+                            <constraint firstItem="Kdu-3L-CGS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="1.5" id="akA-gc-poI"/>
+                            <constraint firstItem="1P0-xz-7Pk" firstAttribute="top" secondItem="Kdu-3L-CGS" secondAttribute="bottom" constant="12" id="hw6-tp-0aP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1P0-xz-7Pk" secondAttribute="trailing" constant="8" id="iJ2-cu-eg2"/>
                             <constraint firstItem="HKz-gA-AUr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yZ5-F1-tj6"/>
                         </constraints>
                     </view>
@@ -53,22 +148,39 @@
                         <imageReference key="image" image="newspaper" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="customSegment" destination="Kdu-3L-CGS" id="0V7-xo-feE"/>
+                        <outlet property="feedCollection" destination="1P0-xz-7Pk" id="lfA-b9-2e2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="B9Y-s3-LNE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="102" y="-28"/>
+            <point key="canvasLocation" x="100.90909090909092" y="-28.242677824267783"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="512" height="512"/>
+        <image name="demo feed image" width="760" height="428"/>
         <image name="grid" width="675" height="1200"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <namedColor name="background">
-            <color red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.071000002324581146" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="border color">
+            <color red="0.21199999749660492" green="0.21199999749660492" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="brand light">
-            <color red="0.24313725490196078" green="0.81176470588235294" blue="0.55686274509803924" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.24300000071525574" green="0.81199997663497925" blue="0.55699998140335083" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="card background">
+            <color red="0.090000003576278687" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="card text">
+            <color red="0.53700000047683716" green="0.53700000047683716" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

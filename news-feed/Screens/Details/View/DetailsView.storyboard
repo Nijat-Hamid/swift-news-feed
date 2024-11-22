@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Details Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DetailsController" id="Y6W-OH-hqX" customClass="DetailsController" customModule="news_feed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="Background">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-XA-nqf">
+                                <rect key="frame" x="8" y="67" width="377" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" name="text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-lQ-7Va">
+                                <rect key="frame" x="8" y="103" width="377" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="ntr-FV-ale"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-IM-fCr">
+                                <rect key="frame" x="8" y="259" width="377" height="551"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" name="text"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="5nP-XA-nqf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="34T-zH-U1V"/>
+                            <constraint firstItem="YDO-IM-fCr" firstAttribute="top" secondItem="HXf-lQ-7Va" secondAttribute="bottom" constant="16" id="6F3-NR-0cF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YDO-IM-fCr" secondAttribute="trailing" constant="8" id="BXK-Ho-Ogy"/>
+                            <constraint firstItem="HXf-lQ-7Va" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="Cfa-qE-Ki9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5nP-XA-nqf" secondAttribute="trailing" constant="8" id="FPf-dr-P9W"/>
+                            <constraint firstItem="5nP-XA-nqf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="G3Z-PD-JBM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YDO-IM-fCr" secondAttribute="bottom" constant="8" id="O0G-AX-xFB"/>
+                            <constraint firstItem="HXf-lQ-7Va" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="R1p-1L-yR8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HXf-lQ-7Va" secondAttribute="trailing" constant="8" id="SgO-CA-CPy"/>
+                            <constraint firstItem="HXf-lQ-7Va" firstAttribute="top" secondItem="5nP-XA-nqf" secondAttribute="bottom" constant="12" id="htY-JK-0AG"/>
+                            <constraint firstItem="5nP-XA-nqf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="xZd-NH-Yur"/>
+                            <constraint firstItem="YDO-IM-fCr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="xr4-4c-z0e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailDescription" destination="YDO-IM-fCr" id="Zur-ny-WoK"/>
+                        <outlet property="detailImage" destination="HXf-lQ-7Va" id="DTa-Wp-o9w"/>
+                        <outlet property="detailTitle" destination="5nP-XA-nqf" id="gUY-g7-1BZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="0.071000002324581146" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

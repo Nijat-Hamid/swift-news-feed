@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bU8-ud-iu6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Zi-6x-vKP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -8,26 +8,27 @@
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="wzG-LQ-3OA">
+        <scene sceneID="Vd6-eB-080">
             <objects>
-                <navigationController id="bU8-ud-iu6" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lVk-k2-F9o">
+                <navigationController id="1Zi-6x-vKP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YoL-MY-Fse">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="brand light"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="72L-4Q-a51" kind="relationship" relationship="rootViewController" id="GO9-FX-7rA"/>
+                        <segue destination="72L-4Q-a51" kind="relationship" relationship="rootViewController" id="5cM-bK-8Sd"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sw9-2Q-Vu9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A95-ym-dMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1535" y="-340"/>
+            <point key="canvasLocation" x="-1593" y="-340"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="oQp-Ic-NtR">
             <objects>
                 <tabBarController modalPresentationStyle="pageSheet" id="72L-4Q-a51" customClass="MainController" customModule="news_feed" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="IYr-xA-8A4"/>
+                    <navigationItem key="navigationItem" id="OUu-DL-BRL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fQi-sx-aCc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,7 +67,7 @@
     </scenes>
     <resources>
         <namedColor name="brand light">
-            <color red="0.24313725490196078" green="0.81176470588235294" blue="0.55686274509803924" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.24300000071525574" green="0.81199997663497925" blue="0.55699998140335083" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text">
             <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
