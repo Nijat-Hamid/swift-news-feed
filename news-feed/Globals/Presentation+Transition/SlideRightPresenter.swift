@@ -58,7 +58,7 @@ class SlideRightPresenter: UIPresentationController {
         
         switch gesture.state {
         case .changed:
-            let newX = max(-frameOfPresentedViewInContainerView.width, translation.x)
+            let newX = min(0, max(-frameOfPresentedViewInContainerView.width, translation.x))
             presentedView.frame.origin.x = newX
         case .ended:
             let velocity = gesture.velocity(in: presentedView).x
@@ -78,7 +78,7 @@ class SlideRightPresenter: UIPresentationController {
     @objc private func didTap(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: containerView)
         
-        guard let presentedView, let containerView, !presentedView.frame.contains(location), !isDismissing  else { return }
+        guard let presentedView, !presentedView.frame.contains(location), !isDismissing  else { return }
         
         dismissMenu()
     }

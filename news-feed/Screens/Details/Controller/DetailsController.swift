@@ -3,7 +3,7 @@ import SDWebImage
 
 class DetailsController: UIViewController {
 
-    var singleModel: SingleModel? 
+    var singleModel: DetailsUIModel?
 
     @IBOutlet weak var detailTitle: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
@@ -15,16 +15,10 @@ class DetailsController: UIViewController {
     }
 
     private func setupUI() {
-
-        guard let model = singleModel else { return }
-
+        guard let model = singleModel else {return}
+        
         detailTitle.text = model.title
         detailDescription.text = model.details
-
-        if let imageUrl = model.image, let url = URL(string: imageUrl) {
-            detailImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
-        } else {
-            detailImage.image = UIImage(named: "placeholder")
-        }
+        detailImage.sd_setImage(with: model.imageUrl, placeholderImage: UIImage(named: "placeholder"))
     }
 }

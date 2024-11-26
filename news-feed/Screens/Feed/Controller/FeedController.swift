@@ -9,10 +9,13 @@
 import UIKit
 
 class FeedController: UIViewController {
+    private let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdhdnp3ZWF5dXdyZ21sd2t2d3FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxOTgwNzQsImV4cCI6MjA0Nzc3NDA3NH0.C66tH0cvY_nJaa4izwMh9OpH9Xp4oNHaGFGUrwVxXuc"
     
     private var selectedLabel:String = Category.mobile.rawValue
     private var feedData:APIDTOModel = []
     private var filteredFeedData: APIDTOModel = []
+    private var feedUIData: [FeedUIModel] = []
+    
     @IBOutlet weak var customSegment: CustomSegment! {
         didSet{
             customSegment.delegate = self
@@ -21,7 +24,6 @@ class FeedController: UIViewController {
     
     @IBOutlet weak var feedCollection: UICollectionView! {
         didSet{
-            feedCollection.isUserInteractionEnabled = true
             feedCollection.collectionViewLayout = layoutGenerator()
             feedCollection.dataSource = self
             feedCollection.delegate = self
@@ -74,7 +76,6 @@ class FeedController: UIViewController {
     }
     
     private func fetch(){
-        let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdhdnp3ZWF5dXdyZ21sd2t2d3FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxOTgwNzQsImV4cCI6MjA0Nzc3NDA3NH0.C66tH0cvY_nJaa4izwMh9OpH9Xp4oNHaGFGUrwVxXuc"
         let urlString = "https://gavzweayuwrgmlwkvwqj.supabase.co/rest/v1/newsfeed"
         guard let url = URL(string: urlString) else {return}
         var urlReq = URLRequest(url: url)
@@ -111,12 +112,12 @@ extension FeedController:UIViewControllerTransitioningDelegate{
 
 extension FeedController:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredFeedData.count
+        return feedUIData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as! FeedCell
-        let item = filteredFeedData[indexPath.row]
+        let item = feedUIData[indexPath.row]
         cell.configureCell(with: item)
         return cell
     }
@@ -124,7 +125,13 @@ extension FeedController:UICollectionViewDataSource,UICollectionViewDelegate{
         let sb = UIStoryboard(name: "DetailsView", bundle: nil)
         guard let vc = sb.instantiateInitialViewController() as? DetailsController else {return}
         let item = filteredFeedData[indexPath.row]
-        vc.singleModel = item
+        guard
+            let title = item.title,
+            let details = item.details,
+            let urlString = item.image,
+            let image = URL(string: urlString)
+        else {return}
+        vc.singleModel = .init(title: title, details: details, imageUrl: image)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -136,6 +143,16 @@ extension FeedController:CustomSegmentDelegate{
     
     private func filterFeedData(name:String = "mobile") {
         filteredFeedData = feedData.filter { $0.category!.rawValue == name.lowercased()}
+        feedUIData = filteredFeedData.compactMap({ model -> FeedUIModel? in
+            guard
+                let title = model.title,
+                let description = model.description,
+                let urlString = model.image,
+                let image = URL(string: urlString)
+            else {return nil}
+            return .init(title: title, description: description, imageUrl: image)
+        })
+        
         feedCollection.reloadData()
     }
     

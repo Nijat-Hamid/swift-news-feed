@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Zi-6x-vKP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="72L-4Q-a51">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -7,22 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Vd6-eB-080">
+        <!--Item-->
+        <scene sceneID="Tgj-oH-o5X">
             <objects>
-                <navigationController id="1Zi-6x-vKP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YoL-MY-Fse">
+                <navigationController id="k4H-ra-eMJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="x8Y-Bm-RgA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mdq-nT-P7L">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="brand light"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="72L-4Q-a51" kind="relationship" relationship="rootViewController" id="5cM-bK-8Sd"/>
+                        <segue destination="Tyt-AW-Poh" kind="relationship" relationship="rootViewController" id="cnc-xX-1F1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A95-ym-dMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ETM-WQ-dEo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1593" y="-340"/>
+            <point key="canvasLocation" x="-1706" y="-340"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="oQp-Ic-NtR">
@@ -36,7 +36,7 @@
                         <color key="selectedImageTintColor" name="brand light"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Tyt-AW-Poh" kind="relationship" relationship="viewControllers" id="3aL-nl-2qV"/>
+                        <segue destination="k4H-ra-eMJ" kind="relationship" relationship="viewControllers" id="IfV-Yk-wlG"/>
                         <segue destination="wC5-GR-0uA" kind="relationship" relationship="viewControllers" id="W17-LG-HAJ"/>
                     </connections>
                 </tabBarController>
@@ -49,10 +49,11 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="FeedView" id="Tyt-AW-Poh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rtV-Dv-N1T" userLabel="Bar Item"/>
+                    <navigationItem key="navigationItem" id="5Xc-EZ-2AH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRG-zH-1QM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="-461"/>
+            <point key="canvasLocation" x="-1706" y="175"/>
         </scene>
         <!--AboutView-->
         <scene sceneID="6jP-fy-vCq">
@@ -62,7 +63,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHi-HK-D0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-357"/>
+            <point key="canvasLocation" x="-696" y="175"/>
         </scene>
     </scenes>
     <resources>
