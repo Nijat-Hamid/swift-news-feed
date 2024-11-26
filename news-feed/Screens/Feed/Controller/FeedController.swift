@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedController: UIViewController {
+class FeedController: BaseViewController {
     private let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdhdnp3ZWF5dXdyZ21sd2t2d3FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxOTgwNzQsImV4cCI6MjA0Nzc3NDA3NH0.C66tH0cvY_nJaa4izwMh9OpH9Xp4oNHaGFGUrwVxXuc"
     
     private var selectedLabel:String = Category.mobile.rawValue
@@ -48,14 +48,7 @@ class FeedController: UIViewController {
         return dataSource
     }()
     
-    private lazy var progress:UIActivityIndicatorView = {
-        let progress = UIActivityIndicatorView()
-        progress.hidesWhenStopped = true
-        progress.color = .brandLight
-        progress.style = .large
-        progress.translatesAutoresizingMaskIntoConstraints = false
-        return progress
-    }()
+   
     
     private func layoutGenerator () ->UICollectionViewLayout{
         
@@ -94,17 +87,9 @@ class FeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(progress)
-        NSLayoutConstraint.activate([
-            progress.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            progress.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-    }
-    
-    override func loadView() {
-        super.loadView()
         fetch()
     }
+    
     
     private func fetch(){
         let urlString = "https://gavzweayuwrgmlwkvwqj.supabase.co/rest/v1/newsfeed"
@@ -124,7 +109,7 @@ class FeedController: UIViewController {
             do{
                 let decodedData = try JSONDecoder().decode(APIDTOModel.self, from: data)
                 feedData = decodedData
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     guard let self else {return}
                     progress.stopAnimating()
                     filterFeedData()

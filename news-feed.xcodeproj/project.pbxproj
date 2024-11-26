@@ -33,6 +33,7 @@
 		1FBDD17B2CF4923D00223819 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD15A2CF4923D00223819 /* MenuController.swift */; };
 		1FBDD17D2CF4997900223819 /* FeedUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD17C2CF4997500223819 /* FeedUIModel.swift */; };
 		1FBDD1812CF4B0BC00223819 /* DetailsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1802CF4B0B600223819 /* DetailsUIModel.swift */; };
+		1FBDD1842CF60B4F00223819 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1832CF60B4F00223819 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		1FBDD1612CF4923D00223819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FBDD17C2CF4997500223819 /* FeedUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIModel.swift; sourceTree = "<group>"; };
 		1FBDD1802CF4B0B600223819 /* DetailsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUIModel.swift; sourceTree = "<group>"; };
+		1FBDD1832CF60B4F00223819 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				1FBDD1312CF4923D00223819 /* Extensions */,
 				1FBDD1352CF4923D00223819 /* Presentation+Transition */,
+				1FBDD1832CF60B4F00223819 /* BaseViewController.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				1FBDD16E2CF4923D00223819 /* Data+Extension.swift in Sources */,
 				1FBDD16F2CF4923D00223819 /* UITextField+Extension.swift in Sources */,
 				1FBDD1812CF4B0BC00223819 /* DetailsUIModel.swift in Sources */,
+				1FBDD1842CF60B4F00223819 /* BaseViewController.swift in Sources */,
 				1FBDD1702CF4923D00223819 /* UIView+Extension.swift in Sources */,
 				1FBDD17D2CF4997900223819 /* FeedUIModel.swift in Sources */,
 				1FBDD1712CF4923D00223819 /* SlideRightPresenter.swift in Sources */,
