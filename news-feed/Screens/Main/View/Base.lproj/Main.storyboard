@@ -15,6 +15,19 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mdq-nT-P7L">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="brand light"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <barButtonItemAppearance key="backButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <connections>
                         <segue destination="Tyt-AW-Poh" kind="relationship" relationship="rootViewController" id="cnc-xX-1F1"/>

@@ -25,11 +25,28 @@ class FeedController: UIViewController {
     @IBOutlet weak var feedCollection: UICollectionView! {
         didSet{
             feedCollection.collectionViewLayout = layoutGenerator()
-            feedCollection.dataSource = self
             feedCollection.delegate = self
-            feedCollection.reloadData()
+
         }
     }
+    
+    private func reloadData(){
+        var snapshoot = NSDiffableDataSourceSnapshot<Int, FeedUIModel>()
+        snapshoot.appendSections([0])
+        snapshoot.appendItems(feedUIData, toSection: 0)
+        dataSource.apply(snapshoot)
+    }
+    
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Int, FeedUIModel> = {
+        let dataSource = UICollectionViewDiffableDataSource<Int, FeedUIModel>(collectionView: feedCollection) { [unowned self] collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as! FeedCell
+            let item = feedUIData[indexPath.row]
+            cell.configureCell(with: item)
+            return cell
+        }
+        
+        return dataSource
+    }()
     
     private func layoutGenerator () ->UICollectionViewLayout{
         
@@ -110,17 +127,7 @@ extension FeedController:UIViewControllerTransitioningDelegate{
     }
 }
 
-extension FeedController:UICollectionViewDataSource,UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedUIData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as! FeedCell
-        let item = feedUIData[indexPath.row]
-        cell.configureCell(with: item)
-        return cell
-    }
+extension FeedController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "DetailsView", bundle: nil)
         guard let vc = sb.instantiateInitialViewController() as? DetailsController else {return}
@@ -145,15 +152,15 @@ extension FeedController:CustomSegmentDelegate{
         filteredFeedData = feedData.filter { $0.category!.rawValue == name.lowercased()}
         feedUIData = filteredFeedData.compactMap({ model -> FeedUIModel? in
             guard
+                let id = model.id,
                 let title = model.title,
                 let description = model.description,
                 let urlString = model.image,
                 let image = URL(string: urlString)
             else {return nil}
-            return .init(title: title, description: description, imageUrl: image)
+            return .init(id: id, title: title, description: description, imageUrl: image)
         })
-        
-        feedCollection.reloadData()
+        reloadData()
     }
     
 }

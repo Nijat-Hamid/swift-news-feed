@@ -6,8 +6,9 @@
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 import Foundation
-
-struct FeedUIModel {
+ 
+struct FeedUIModel:Hashable {
+    let id:Int
     let title:String
     let description:String
     let imageUrl:URL
