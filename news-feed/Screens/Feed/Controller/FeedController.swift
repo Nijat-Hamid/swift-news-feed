@@ -48,6 +48,15 @@ class FeedController: UIViewController {
         return dataSource
     }()
     
+    private lazy var progress:UIActivityIndicatorView = {
+        let progress = UIActivityIndicatorView()
+        progress.hidesWhenStopped = true
+        progress.color = .brandLight
+        progress.style = .large
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        return progress
+    }()
+    
     private func layoutGenerator () ->UICollectionViewLayout{
         
         let sectionProvider:UICollectionViewCompositionalLayoutSectionProvider = { section,enviroment in
@@ -85,6 +94,11 @@ class FeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(progress)
+        NSLayoutConstraint.activate([
+            progress.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            progress.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     override func loadView() {
@@ -98,6 +112,7 @@ class FeedController: UIViewController {
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = "GET"
         urlReq.setValue(key, forHTTPHeaderField: "apikey")
+        progress.startAnimating()
         let session = URLSession.shared.dataTask(with: urlReq) {[weak self] data, response, error in
             guard let data, let self else {return}
             
@@ -111,7 +126,9 @@ class FeedController: UIViewController {
                 feedData = decodedData
                 DispatchQueue.main.async { [weak self] in
                     guard let self else {return}
+                    progress.stopAnimating()
                     filterFeedData()
+                    
                 }
             }catch {
                 print("Error decoding JSON: \(error)")

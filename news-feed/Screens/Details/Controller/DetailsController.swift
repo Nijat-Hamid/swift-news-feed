@@ -7,8 +7,8 @@ class DetailsController: UIViewController {
 
     @IBOutlet weak var detailTitle: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
-    @IBOutlet weak var detailDescription: UITextView!
-
+    @IBOutlet weak var detailDescription: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
